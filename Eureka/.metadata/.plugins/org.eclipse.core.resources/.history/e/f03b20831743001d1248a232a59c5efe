@@ -1,0 +1,5 @@
+package com.example.eureka.client.api.controller;
+
+public class ShoppingController {
+
+}

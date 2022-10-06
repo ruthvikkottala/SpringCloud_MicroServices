@@ -1,0 +1,28 @@
+package com.example.eureka.client.api.controller;
+
+import javax.websocket.server.PathParam;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+@RequestMapping("/shopping")
+public class ShoppingController {
+	
+	private static final String urlString = "http://payment-service/";
+	
+	@Autowired
+	RestTemplate restTemplate;
+
+	@GetMapping("/payAmount/{amt}")
+	public String payAmount(@PathVariable Integer amt) {
+		
+//		String url = urlString+"pay-bill/"+amt;
+		String url = "http://PAYMENT-SERVICE/paymentService/pay-bill/"+amt;
+		return restTemplate.getForObject(url, String.class);
+	}
+}

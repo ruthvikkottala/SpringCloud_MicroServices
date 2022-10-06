@@ -1,0 +1,16 @@
+package com.example.eureka.provider.api.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/paymentService")
+public class PaymentController {
+
+	@GetMapping("/pay-bill/{amt}")
+	public String payAmount(@PathVariable Integer amt) {
+		return "Amount : " + amt + " paid successfully";
+	}
+}
